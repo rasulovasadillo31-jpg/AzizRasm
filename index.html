@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Shaxsiy rasm va video galereya">
+
+    <title>Media Gallery | Shaxsiy galereya</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">✦</span>
+                Media<span>Gallery</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Bosh sahifa</a>
+                <a href="#gallery" class="nav-link">Galereya</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <button class="theme-btn" id="themeBtn"
+                    aria-label="Rejimni almashtirish">
+                    ☾
+                </button>
+
+                <a href="#gallery" class="nav-upload">
+                    + Yuklash
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    YOUR PERSONAL MEDIA SPACE
+                </div>
+
+                <h1>
+                    Xotiralaringizni
+                    <span>bir joyda</span>
+                    saqlang.
+                </h1>
+
+                <p>
+                    Eng qadrli suratlaringiz va videolaringizni
+                    bir joyda to'plang. O'z galereyangizni yarating,
+                    boshqaring va istalgan vaqtda tomosha qiling.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#gallery" class="primary-btn">
+                        Galereyani ochish
+                        <span>→</span>
+                    </a>
+
+                    <button class="secondary-btn" id="heroUpload">
+                        ↑ Fayl yuklash
+                    </button>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div class="stat">
+                        <h3 id="totalCount">0</h3>
+                        <p>Jami fayllar</p>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="stat">
+                        <h3 id="imageCount">0</h3>
+                        <p>Rasmlar</p>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="stat">
+                        <h3 id="videoCount">0</h3>
+                        <p>Videolar</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="hero-glow"></div>
+
+                <div class="hero-card card-one">
+                    <div class="visual-placeholder purple">
+                        ✦
+                    </div>
+                </div>
+
+                <div class="hero-card card-two">
+                    <div class="visual-placeholder orange">
+                        ◈
+                    </div>
+                </div>
+
+                <div class="hero-card card-three">
+                    <div class="visual-placeholder blue">
+                        ▷
+                    </div>
+                </div>
+
+                <div class="floating-label">
+                    <span class="status-dot"></span>
+                    Your memories, your space
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+        <section class="gallery-section" id="gallery">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-tag">YOUR COLLECTION</div>
+
+                    <h2>
+                        Media <span>galereyangiz</span>
+                    </h2>
+
+                    <p>
+                        Barcha rasmlar va videolar bir joyda.
+                    </p>
+                </div>
+
+                <button class="primary-btn upload-main" id="uploadBtn">
+                    <span>＋</span>
+                    Yuklash
+                </button>
+
+            </div>
+
+
+            <!-- UPLOAD AREA -->
+            <div class="upload-area" id="dropZone">
+
+                <div class="upload-icon">↑</div>
+
+                <h3>Fayllaringizni shu yerga tashlang</h3>
+
+                <p>
+                    Yoki yuklash tugmasini bosib qurilmangizdan tanlang.
+                </p>
+
+                <span class="file-formats">
+                    JPG · PNG · WEBP · GIF · AVIF · MP4 · WEBM · MOV
+                </span>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept=".jpg,.jpeg,.png,.webp,.gif,.avif,.mp4,.webm,.mov,image/jpeg,image/png,image/webp,image/gif,image/avif,video/mp4,video/webm,video/quicktime"
+                    multiple
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- FILTERS -->
+            <div class="gallery-toolbar">
+
+                <div class="filter-buttons">
+
+                    <button class="filter-btn active" data-filter="all">
+                        Hammasi
+                        <span id="allFilterCount">0</span>
+                    </button>
+
+                    <button class="filter-btn" data-filter="image">
+                        Rasmlar
+                        <span id="imageFilterCount">0</span>
+                    </button>
+
+                    <button class="filter-btn" data-filter="video">
+                        Videolar
+                        <span id="videoFilterCount">0</span>
+                    </button>
+
+                </div>
+
+                <div class="gallery-info">
+                    <span id="galleryInfo">0 ta fayl</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+            <div class="upload-progress" id="uploadProgress">
+
+                <div class="progress-header">
+                    <span id="progressText">Yuklanmoqda...</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+            </div>
+
+
+            <!-- GALLERY GRID -->
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- JavaScript orqali kartochkalar qo'shiladi -->
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">▧</div>
+
+                <h3>Galereyangiz hozircha bo'sh</h3>
+
+                <p>
+                    Birinchi rasm yoki videongizni yuklashdan boshlang.
+                </p>
+
+                <button class="primary-btn" id="emptyUpload">
+                    ＋ Birinchi faylni yuklash
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            ✦ MediaGallery
+        </div>
+
+        <p>
+            Your memories. Your space.
+        </p>
+
+        <span>© 2026 Media Gallery</span>
+
+    </footer>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+
+        <div class="lightbox-header">
+
+            <div class="lightbox-title">
+                <span id="lightboxName">Media</span>
+                <small id="lightboxCounter">1 / 1</small>
+            </div>
+
+            <button class="lightbox-close" id="lightboxClose"
+                aria-label="Yopish">
+                ✕
+            </button>
+
+        </div>
+
+
+        <button class="lightbox-nav prev" id="prevBtn"
+            aria-label="Oldingi">
+            ‹
+        </button>
+
+
+        <div class="lightbox-content" id="lightboxContent">
+        </div>
+
+
+        <button class="lightbox-nav next" id="nextBtn"
+            aria-label="Keyingi">
+            ›
+        </button>
+
+        <div class="lightbox-footer">
+            ← → Navigatsiya
+            <span>ESC — yopish</span>
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="./index.js"></script>
+
+</body>
+</html>
